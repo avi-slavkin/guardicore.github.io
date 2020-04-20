@@ -1,0 +1,6 @@
+id,error_id,error_dicription,validation,solution
+1,ERR-INST-001,problem with package manager on prerequisit installation, sudo apt-get update && sudo apt-get -f install, sudo dpkg --configure -a && sudo apt-get clean
+2,ERR-INST-002,connectivity problem to aggregator, curl google.com:80 , port 80 is blocked do something
+3,ERR-INST-002,connectivity problem on package download, echo "$https_proxy", you have a proxy run: export GC_PROXY_HTTPS="$https_proxy" and rerun installation
+4,ERR-INST-003,problem with package manager on agent installation,check something,do something
+5,ERR-INST-004,connectivity problem on package download,check something,do something

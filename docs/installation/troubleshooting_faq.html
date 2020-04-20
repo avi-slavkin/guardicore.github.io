@@ -1,0 +1,283 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Troubleshooting &#8212; Guardicore Agent Documentation 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="&lt;no title&gt;" href="../devel/index.html" />
+    <link rel="prev" title="Installing FAQ" href="installing_faq.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="troubleshooting">
+<h1>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="linux-installation-steps-and-errors">
+<h2>Linux installation steps and errors<a class="headerlink" href="#linux-installation-steps-and-errors" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>Download installation script and pem</p>
+<blockquote>
+<div><ul>
+<li><p>No connectivity</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>wrong aggr ip/FQDN</p></li>
+<li><p>wget/curl is blocked by fw</p></li>
+<li><p>aggr address is blocked by fw</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Validate running as root</p></li>
+<li><p>Validate platform name</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Platform not supported</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Set proxy addr(if passed by env var)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Wrong proxy address</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Validate platform arch</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Platform is not 64 bit</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Gather os info</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Wrong or partial info</p></li>
+<li><p>Os is not supported</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Install and check prerequisites</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Package manager error (error code: ERR-INST-001)</p></li>
+<li><p>No connectivity to aggregator (error code: ERR-INST-002)</p></li>
+<li><p>Wrong password given</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Agent support validation</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Distro not supported</p></li>
+<li><p>Distro version not supported</p></li>
+<li><p>Package version is missing (in case of env variable)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Verify agent capabilities(enf/detection/deception)</p></li>
+<li><p>Download package</p>
+<ul class="simple">
+<li><p>No disk space</p></li>
+<li><p>Target path has no permissions</p></li>
+</ul>
+</li>
+</ol>
+<div class="section" id="in-case-of-offline-installation-start-here">
+<h3>In case of offline installation start here<a class="headerlink" href="#in-case-of-offline-installation-start-here" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Export env vars</p>
+</div></blockquote>
+<ol class="arabic" start="11">
+<li><p>Install package</p>
+<ul class="simple">
+<li><p>Package manager error (error code: ERR-INST-003)</p></li>
+<li><p>No disk space</p></li>
+<li><p>Target path has no permissions</p></li>
+</ul>
+</li>
+<li><p>Create agent certificates</p>
+<ul>
+<li><p>No connectivity (error code: ERR-INST-004)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Firewall is blocking aggr address/fqdn</p></li>
+<li><p>Firewall is blocking libcurl</p></li>
+<li><p>Firewall is blocking self signed traffic</p></li>
+<li><p>FQDN is missing on cert</p></li>
+<li><p>Proxy isn’t configured</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><p>Set capabilities and enable modules</p></li>
+<li><p>Set resource limitations</p></li>
+<li><p>Validate file permissions</p></li>
+<li><p>Validate client certificate</p>
+<ul class="simple">
+<li><p>Missing file</p></li>
+<li><p>Failed or missing status file in case of cert. enrollment</p></li>
+</ul>
+</li>
+<li><p>Download and load kos</p>
+<ul class="simple">
+<li><p>No connectivity</p></li>
+<li><p>Missing on mgmt</p></li>
+</ul>
+</li>
+</ol>
+<table class="colwidths-given longtable docutils align-default" id="id1">
+<caption><span class="caption-text">Error Solution Map</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 29%" />
+<col style="width: 29%" />
+<col style="width: 29%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>id</p></th>
+<th class="head"><p>error_id</p></th>
+<th class="head"><p>error_dicription</p></th>
+<th class="head"><p>validation</p></th>
+<th class="head"><p>solution</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>ERR-INST-001</p></td>
+<td><p>problem with package manager on prerequisit installation</p></td>
+<td><p>sudo apt-get update &amp;&amp; sudo apt-get -f install</p></td>
+<td><p>sudo dpkg –configure -a &amp;&amp; sudo apt-get clean</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>ERR-INST-002</p></td>
+<td><p>connectivity problem to aggregator</p></td>
+<td><p>curl google.com:80</p></td>
+<td><p>port 80 is blocked do something</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>ERR-INST-002</p></td>
+<td><p>connectivity problem on package download</p></td>
+<td><p>echo “$https_proxy”</p></td>
+<td><p>you have a proxy run: export GC_PROXY_HTTPS=”$https_proxy” and rerun installation</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>ERR-INST-003</p></td>
+<td><p>problem with package manager on agent installation</p></td>
+<td><p>check something</p></td>
+<td><p>do something</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>ERR-INST-004</p></td>
+<td><p>connectivity problem on package download</p></td>
+<td><p>check something</p></td>
+<td><p>do something</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Guardicore Agent Documentation</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installing_faq.html">Installing FAQ</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#linux-installation-steps-and-errors">Linux installation steps and errors</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">&lt;no title&gt;</a><ul>
+      <li>Previous: <a href="installing_faq.html" title="previous chapter">Installing FAQ</a></li>
+      <li>Next: <a href="../devel/index.html" title="next chapter">&lt;no title&gt;</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Avi Slavkin.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/installation/troubleshooting_faq.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

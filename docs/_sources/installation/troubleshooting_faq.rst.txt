@@ -1,0 +1,114 @@
+===============
+Troubleshooting
+===============
+
+###################################
+Linux installation steps and errors
+###################################
+
+1. Download installation script and pem
+
+    * No connectivity
+
+        * wrong aggr ip/FQDN
+
+        * wget/curl is blocked by fw
+
+        * aggr address is blocked by fw
+
+2. Validate running as root
+
+3. Validate platform name
+
+    * Platform not supported
+
+4. Set proxy addr(if passed by env var)
+
+    * Wrong proxy address
+
+5. Validate platform arch
+
+    * Platform is not 64 bit
+
+6. Gather os info
+
+    * Wrong or partial info
+
+    * Os is not supported
+
+7. Install and check prerequisites
+
+    * Package manager error (error code: ERR-INST-001)
+
+    * No connectivity to aggregator (error code: ERR-INST-002)
+
+    * Wrong password given
+
+8. Agent support validation
+
+    * Distro not supported
+
+    * Distro version not supported
+
+    * Package version is missing (in case of env variable)
+
+9. Verify agent capabilities(enf/detection/deception)
+
+10. Download package
+
+    * No disk space
+
+    * Target path has no permissions
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+In case of offline installation start here
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ Export env vars
+
+
+11. Install package
+
+    * Package manager error (error code: ERR-INST-003)
+
+    * No disk space
+
+    * Target path has no permissions
+
+12. Create agent certificates
+
+    * No connectivity (error code: ERR-INST-004)
+
+        * Firewall is blocking aggr address/fqdn
+
+        * Firewall is blocking libcurl
+
+        * Firewall is blocking self signed traffic
+
+        * FQDN is missing on cert
+
+        * Proxy isn't configured
+
+13. Set capabilities and enable modules
+
+14. Set resource limitations
+
+15. Validate file permissions
+
+16. Validate client certificate
+
+    * Missing file
+
+    * Failed or missing status file in case of cert. enrollment
+
+17. Download and load kos
+
+    * No connectivity
+
+    * Missing on mgmt
+
+
+.. csv-table:: Error Solution Map
+   :file: ../_files/error_solution.csv
+   :widths: 1, 1, 5, 5, 5
+   :header-rows: 1
+   :class: longtable

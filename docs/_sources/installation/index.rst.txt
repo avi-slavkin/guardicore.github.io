@@ -1,0 +1,13 @@
+The installation guide
+.. only:: html
+
+   :Release: |version|
+   :Date: |today|
+
+   Frequently asked questions about agent installation
+
+.. toctree::
+   :maxdepth: 2
+
+   installing_faq.rst
+   troubleshooting_faq.rst

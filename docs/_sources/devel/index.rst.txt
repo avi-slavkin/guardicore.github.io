@@ -1,0 +1,10 @@
+The development guide
+.. only:: html
+
+   :Release: |version|
+   :Date: |today|
+
+   The agent development guide
+
+.. toctree::
+   :maxdepth: 2
